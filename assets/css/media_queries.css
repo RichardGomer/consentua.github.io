@@ -1,0 +1,151 @@
+/*
+***
+* MEDIA QUERIES
+***
+* Responsive content which adjusts to varying device display sizes.
+***
+*/
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+CSS TABLE OF CONTENTS
+
+1.0 - Laptops and small monitors
+2.0 - Tablets
+3.0 - Mobiles
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1.0 - Laptops and small monitors */
+
+@media only screen and (max-width: 1400px) {
+  header > div {
+    width: 80vw;
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2.0 - Tablets */
+
+@media only screen and (max-width: 1050px) {
+  nav > p {
+    display: block;
+    cursor: pointer;
+  }
+
+  nav > ul {
+    width: 100vw;
+    height: calc(100vh - 4em);
+    background: #9A1144;
+    padding: 0;
+    margin-right: -10vw;
+    text-align: left;
+    top: 4em;
+    background-color: rgba(24,20,26,0.5);
+  }
+
+  nav > ul > li {
+    display: block;
+    float: right;
+    clear: both;
+    width: 20em;
+    margin: 0;
+    border-top: 1px solid #3D061B;
+    border-right: 1px solid #3D061B;
+    border-left: 1px solid #3D061B;
+    border-bottom: 0;
+  }
+
+    nav > ul > li:last-of-type {
+      border-bottom: 1px solid #3D061B;
+    }
+
+    nav > ul > li > a {
+      display: block;
+      margin-bottom: 0;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      padding-left: 25%;
+      width: 100%;
+      background: #fbf9fa;
+    }
+
+      nav > ul > li > a:hover {
+        background: #CC88A1;
+        color: #fff;
+      }
+
+      nav > ul > li > a > svg {
+        display: inline !important;
+        margin-right: 1.5em;
+      }
+
+  .centerbox {
+    width: 80%;
+  }
+
+  .widecenter > h1, .widecenter > p {
+    text-align: left;
+  }
+
+  .flex > div {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 3em;
+  }
+
+    .flex > div:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .flex > div > p {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+  #logo-container > img, .widecenter > img {
+    width: 200px;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  header > div > h1 {
+    font-size: 2em;
+    line-height: 2rem;
+  }
+
+  header > div > p {
+    font-size: 1em;
+  }
+
+  footer > .flex > div {
+    width: 50%;
+  }
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+3.0 - Mobiles */
+
+@media only screen and (max-width: 600px) {
+  .flex > div.twocols {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  #logo-container > img, .widecenter > img {
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  nav > a > img {
+    height: 1em;
+    top: 1.5em;
+  }
+}

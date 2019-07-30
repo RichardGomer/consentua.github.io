@@ -1,0 +1,258 @@
+/*
+***
+* TEMPLATE STYLING
+***
+* Styles the default template, as well as global styling for content such as fonts,
+* tables, headers, iframes, navigation menu and the footer.
+***
+*/
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+CSS TABLE OF CONTENTS
+
+1.0 - Globals
+2.0 - Responsive text
+3.0 - Navigation menu
+4.0 - Footer
+5.0 - Colour palette
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1.0 - Globals */
+
+html, body
+{
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: calc(16px + (20 - 16) * (100vw - 400px) / (2000 - 600) );
+  background: #f2f0f0;
+  color: #1e1e1e;
+  box-sizing: border-box;
+  min-width: 300px;
+  max-width: 2600px;
+  overflow-x: hidden;
+}
+
+#content {
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+li
+{
+  margin-bottom: 1.5rem;
+}
+
+iframe {
+  border: 0;
+  width: 100%;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2.0 - Responsive text */
+
+p, blockquote, a
+{
+  line-height: 1.5rem;
+  margin-bottom: 1.5rem; /*baseline = 1.5rem*/
+  margin-top: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1
+{
+  font-size: 2rem;
+  line-height: 2rem;
+  margin-top: calc((1.5rem - 2rem) + 1.5rem);
+  /* ((1 baseline - font-size) + 1 baseline) */
+  margin-bottom: 1.5rem; /* =1 baseline */
+}
+
+h2
+{
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  margin-top: calc((1.5rem - 1.5rem) + 1.5rem);
+  /* ((1 baseline - font-size) + 1 baseline) */
+  margin-bottom: 1.5rem; /* =1 baseline */
+}
+
+h3
+{
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  margin-top: calc((1.5rem - 1.25rem) + 1.5rem);
+  /* ((1 baseline - font-size) + 1 baseline) */
+  margin-bottom: 1.5rem; /* =1 baseline */
+}
+
+h4
+{
+  font-size: 1rem;
+  line-height: 1rem;
+  margin-top: calc((1.5rem - 1rem) + 1.5rem);
+  /* ((1 baseline - font-size) + 1 baseline) */
+  margin-bottom: 1.5rem; /* =1 baseline */
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+3.0 - Navigation menu */
+
+nav {
+  position: fixed;
+  width: 100vw;
+  margin-left: -10vw;
+  margin-right: -10vw;
+  height: 4em;
+  background: #fbf9fa;
+  color: #9A1144;
+  z-index: 100;
+}
+
+  nav > a > img {
+    height: 1.5em;
+    position: absolute;
+    top: 1.25em;
+    left: 10vw;
+  }
+
+  nav > a > img:hover {
+    cursor: pointer;
+  }
+
+  nav > p {
+    position: absolute;
+    display: none;
+    width: 100px;
+    top: 0.75em;
+    right: 10vw;
+    padding: 0.5em 1em;
+    margin-bottom: 0;
+    box-shadow: 0px 0px 2px #9A1144;
+  }
+
+    nav > p > svg {
+      margin-right: 1em;
+    }
+
+    nav > p:hover {
+      box-shadow: 0px 0px 10px #9A1144;
+    }
+
+  nav > ul {
+    position: absolute;
+    top: 1.25em;
+    right: 10vw;
+    margin: 0;
+  }
+
+  nav > ul > li {
+    display: inline;
+    margin-left: 3em;
+  }
+
+  nav > ul > li > a > svg {
+    display: none !important;
+  }
+
+  nav > ul > li > a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+4.0 - Footer */
+
+footer {
+  padding: 6em 10vw;
+  background: #18141A;
+  margin-left: -10vw;
+  margin-right: -10vw;
+  color: #fff;
+}
+
+  footer > p {
+    font-size: 0.8em;
+    margin-top: 0;
+  }
+
+  footer > p > a {
+    color: #fff;
+  }
+
+  footer > a {
+    font-size: 1.5em;
+    margin-right: 1em;
+    color: #fff;
+  }
+
+      footer > a:hover {
+        cursor: pointer;
+      }
+
+  footer > img {
+    height: 2em;
+    margin-bottom: 1.5em;
+  }
+
+    footer > .flex > div {
+      width: 22%;
+      margin-bottom: 1.5em;
+    }
+
+      footer > .flex > div > h2 {
+        font-size: 1.1em;
+        margin-bottom: 0.75em;
+        text-align: left;
+        text-decoration: underline;
+      }
+
+      footer > .flex > div > a {
+        font-size: 1em;
+        display: block;
+        margin-bottom: 0.75em;
+        text-align: left;
+        color: #fff;
+        text-decoration: none;
+      }
+
+        footer > .flex > div > a:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+5.0 - Colour palette */
+
+.red {
+  background: #9A1144;
+}
+
+.red-light {
+  background: #F8F0F3;
+}
+
+.white {
+  background: #fbf9fa;
+}
+
+.midblue {
+  background: #23293F;
+}
+
+.black {
+  background: #18141A;
+}
+
+.grey {
+  background: #373737;
+}
