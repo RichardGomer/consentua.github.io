@@ -2,7 +2,7 @@
 ***
 * HOME PAGE STYLING
 ***
-* Styles content on the home page, including header, sections, image containers and flexboxes.
+* Styles content on the home page, including header, image containers and flexboxes.
 ***
 */
 
@@ -11,14 +11,11 @@
 CSS TABLE OF CONTENTS
 
 1.0 - Header
-2.0 - Sections
-    2.1 - Narrow sections
-    2.2 - Wide sections
-3.0 - Flex boxes
-    3.1 - Flex box containing 3 divs
-    3.2 - Flex box containing 2 divs
-4.0 - Logo container
-5.0 - Tick styling
+2.0 - Flex boxes
+    2.1 - Flex box containing 3 divs
+    2.2 - Flex box containing 2 divs
+3.0 - Logo container
+4.0 - Tick styling
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -31,9 +28,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fbf9fa;
+  background: #fff;
   color: #9A1144;
   height: 100vh;
+  width: 100vw;
   margin-top: 0;
   margin-left: -10vw;
   margin-right: -10vw;
@@ -66,105 +64,20 @@ header {
     margin-right: 1.5em;
     margin-bottom: 0;
     color: #fff;
+    text-decoration: none;
     border-radius: 1em;
     padding: 0.5em 1.5em;
+    font-weight: 700;
   }
 
   header > div > div > a:hover {
-    background: #fbf9fa;
+    background: #fff;
     color: #9A1144;
     cursor: pointer;
   }
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-2.0 - Sections */
-
-section {
-  padding: 6em 0;
-  margin-left: -10vw;
-  margin-right: -10vw;
-}
-
-  section > div > h1 {
-    margin-top: 0;
-  }
-
-  section > div > a, section > div > div > a {
-    border: 1px solid #111;
-    border-radius: 1em;
-    padding: 0.5em 1.5em;
-    margin-right: 1.5em;
-  }
-
-  section > div > table {
-    margin-top: 3em;
-  }
-
-    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    2.1 - Narrow sections */
-
-    .centerbox {
-      text-align: center;
-      width: 50vw;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-      .centerbox > img {
-        width: 50vw;
-        max-width: 300px;
-        margin-top: 3em;
-      }
-
-      .centerbox > ul {
-        list-style: none;
-        padding: 0;
-        margin-bottom: 0;
-      }
-
-        .centerbox > ul > li {
-          text-indent: -1em;
-        }
-
-    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    2.2 - Wide sections */
-
-    .widecenter {
-      width: 80vw;
-      margin-left: 10vw;
-      margin-right: 10vw;
-    }
-
-      .widecenter > h1, .widecenter > p {
-        text-align: center;
-      }
-
-      .widecenter > img {
-        width: 50vw;
-        max-width: 300px;
-        display: none;
-        margin-top: 3em;
-      }
-
-        .widecenter > img:first-of-type {
-          display: inline-block;
-        }
-
-      .widecenter > div > a {
-        margin-bottom: 0;
-        background: #9A1144;
-        color: #fff;
-        border: 1px solid #9A1144;
-      }
-
-        .widecenter > div > a:hover {
-          cursor: pointer;
-          background: #fff;
-          color: #111;
-        }
-
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-3.0 - Flex boxes */
+2.0 - Flex boxes */
 
 .flex {
   display: flex;
@@ -206,19 +119,21 @@ section {
     border: 1px solid #9A1144;
     background: #9A1144;
     color: #fff;
+    text-decoration: none;
     border-radius: 1em;
     padding: 0.5em 1.5em;
     margin-top: 1.5em;
+    font-weight: 700;
   }
 
     .flex > div > .button:hover {
-      background: #fbf9fa;
+      background: #fff;
       color: #9A1144;
       cursor: pointer;
     }
 
     /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    3.1 - Flex box containing 3 divs */
+    2.1 - Flex box containing 3 divs */
 
     .flex > div {
       width: 30%;
@@ -231,7 +146,7 @@ section {
       }
 
     /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    3.2 - Flex box contaning 2 divs */
+    2.2 - Flex box contaning 2 divs */
 
     .flex > .twocols {
       width: 45%;
@@ -243,7 +158,7 @@ section {
       }
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-4.0 - Logo container */
+3.0 - Logo container */
 
 #logo-container {
   margin: 1.5em 0 4.5em 0;
@@ -259,13 +174,17 @@ section {
   }
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-5.0 - Tick styling */
+4.0 - Tick styling */
 
-.tick:before {
-  font-family: "Font Awesome 5 Solid";
-  content: "\f00c";
-  display:none; /* We need to hide the pseudo element*/
+.tick {
+  margin-bottom: 1.5em;
 }
+
+  .tick:before {
+    font-family: "Font Awesome 5 Solid";
+    content: "\f00c";
+    display:none; /* We need to hide the pseudo element*/
+  }
 
   .tick svg {
     color: #9A1144;

@@ -19,23 +19,22 @@ $( document ).ready(function() {
   }
 
   // Default menu button to display "menu" with "inactive" class
-  $('#menu-text').text('Menu');
   $('#menu-button').addClass('inactive');
 
   // Reverts menu button to default appearance and "inactive" class
   function resetMenu() {
-    $('#menu-text').text('Menu');
     $('#menu-button').addClass('inactive');
-    $('#menu-button').css('background', '#fbf9fa');
-    $('#menu-button').css('color', '#9A1144');
+    $('#menu-button').css('color', '#1b1b1b');
+    $('#bars').show();
+    $('#cross').hide();
   }
 
   // Changes menu button to active appearance and removes "inactive" class
   function activateMenu() {
-    $('#menu-text').text('Hide');
     $('#menu-button').removeClass('inactive');
-    $('#menu-button').css('background', '#CC88A1');
     $('#menu-button').css('color', '#fff');
+    $('#bars').hide();
+    $('#cross').show();
   }
 
   // Resets menu button upon window resize, hides 'ul' in mobile mode and displays in full screen mode
