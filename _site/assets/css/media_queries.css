@@ -55,6 +55,7 @@ CSS TABLE OF CONTENTS
   }
 
     nav > ul > li:first-of-type {
+      display: block;
       height: 4rem;
       position: absolute;
       top: 0;

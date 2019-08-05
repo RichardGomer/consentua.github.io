@@ -282,6 +282,10 @@ nav {
     display: inline;
     margin-left: 3em;
   }
+  
+    nav > ul > li:first-of-type {
+      display: none;
+    }
 
   nav > ul > li > a {
     color: #1d1d1d;
