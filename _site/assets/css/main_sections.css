@@ -1,0 +1,64 @@
+/*
+***
+* MAIN SECTIONS STYLING
+***
+* Styles the majority of pages on the site which differ to the layout of the home page.
+* Headers are one example of content which differs.
+***
+*/
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+CSS TABLE OF CONTENTS
+
+1.0 - Header
+2.0 - Privacy policy
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+1.0 - Header */
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 14em;
+  background: #f5f5f5;
+  padding-top: 4rem;
+  margin-bottom: -3em;
+  margin-left: -10vw;
+  margin-right: -10vw;
+}
+
+  header > h1 {
+    font-size: 2.75em;
+    margin: 0;
+    font-weight: 700;
+  }
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2.0 - Privacy policy */
+
+#section_collapse {
+  display: inline-block;
+  background: #9A1144;
+  border: 1px solid #9A1144;
+  color: #fff;
+  padding: 0.5em 1.5em;
+  margin-bottom: 0;
+  border-radius: 1em;
+  font-weight: 700;
+}
+
+  #section_collapse > p {
+    margin-bottom: 0;
+  }
+
+  #section_collapse:hover {
+    cursor: pointer;
+    background: #fff;
+    color: #9A1144;
+    border: 1px solid #9A1144;
+  }
