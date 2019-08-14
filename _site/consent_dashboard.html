@@ -20,16 +20,18 @@
     <!-- Internal scripts -->
     <script src="/assets/js/jquery-3.4.1.min.js" type="text/javascript"></script>
     <script src="https://websdk.consentua.com/websdk/consentua-embed.js.php"></script>
-    <script src="/assets/js/menu_functionality.js" type="text/javascript"></script>
+    <script src="https://websdk.consentua.com/svc/consentua-client/consentua-client.js"></script>
     <script src="/assets/js/jscookie.js" type="text/javascript"></script>
-    <script src="/assets/js/fingerprint2.min.js" type="text/javascript"></script>
+    <script src="/assets/js/consentuaMgr.js" type="text/javascript"></script>
+    <script src="/assets/js/menu_functionality.js" type="text/javascript"></script>
 
-    
 
     
       
-        <link rel="stylesheet" href="/assets/css/main_sections.css" type="text/css">
+      <link rel="stylesheet" href="/assets/css/section.css" type="text/css">
       
+    
+
     
 
   </head>
@@ -38,7 +40,7 @@
     <div id="content">
 
       <nav>
-  <a href="/index.html"><img src="/assets/images/logo_red.png" /></a>
+  <a href="/"><img src="/assets/images/logo_red.png" /></a>
   <p id="menu-button"><i class="fas fa-bars" id="bars"></i><i class="fas fa-times" id="cross" style="display: none;"></i></p>
   <ul id="menu-list">
     <li>
@@ -109,12 +111,47 @@
 
 <section>
   <div class="wideleftalign">
-    <h2>Review your consent choices</h2>
-    <p>This page shows all the consents you have/have not consented to on <strong>consentua.com</strong></p>
 
-    <iframe id="consentua-interaction" src="https://websdk.consentua.com/ui-binary/" style="height: 396px;"></iframe>
+    <div id="dash">
+        <iframe id="consentua-db-cookie"></iframe>
+        <iframe id="consentua-db-contact"></iframe>
+    </div>
 
-    <iframe id="consentua-db-contact" src="https://websdk.consentua.com/svc/#s=25&amp;c=266&amp;t=20&amp;lang=undefined" style="height: 333px;"></iframe>
+    <script>
+    $().ready(function(){
+
+        cmgr.getID().then(function(uid)
+        {
+            var cid= '266',
+                sid= '25';
+
+            console.log("Consentua ID is %s", uid);
+
+            var cooki_cwrap = new ConsentuaUIWrapper(document.getElementById("consentua-db-cookie"), cid, uid, '1000001', sid);
+
+            var cooki_cb_ready = function (msg) {
+            };
+
+            var cooki_cb_set = function (msg) {
+            };
+
+            // set cb
+            cooki_cwrap.onset = cooki_cb_set;
+            cooki_cwrap.onready = cooki_cb_ready;
+
+            // Contact consent
+            var cont_cwrap = new ConsentuaUIWrapper(document.getElementById("consentua-db-contact"), cid, uid, '20', sid);
+            var cont_cb_ready = function (msg) {
+            };
+            var cont_cb_set = function (msg) {
+            };
+
+            // set cb
+            cont_cwrap.onset = cont_cb_set;
+            cont_cwrap.onready = cont_cb_ready;
+        });
+    });
+</script>
 
   </div>
 </section>
@@ -166,6 +203,52 @@
 </script>
 
 
+    </div>
+
+    <!-- Cookie Consent -->
+    <script>
+    //<![CDATA[
+    cmgr.getID().then(function(uid){
+        var consents = cmgr.getConsents().then(function(consents){
+            console.log("Current consent retrieved", consents);
+
+            function onConsent(){
+                console.log("Load Google Tags");
+                $("<script>").attr('type', 'text/javascript').attr('src', 'https://www.googletagmanager.com/gtag/js?id=UA-74260509-3').appendTo('head');
+            }
+
+            if(consents[313] === true) {
+                onConsent();
+            } else {
+                $('#cookie-consent').show();
+
+                var ci = document.getElementById('consent-cookie');
+
+                var cwrap = new ConsentuaEmbed({
+                    iframe: ci,
+                    clientid: "266",
+                    uid: uid,
+                    templateid: '1000001',
+                    serviceid: "25"
+                });
+
+                cwrap.onset = function (msg) {
+                    console.log("Consent received from Consentua", msg);
+                    let c = msg.message.consents || {};
+                    if (c["313"]) {
+                        $('#cookie-consent').hide();
+                        onConsent();
+                    }
+                };
+
+            }
+
+        });
+    });
+    //]]>
+    </script>
+    <div id="cookie-consent" style="display:none">
+        <iframe id="consent-cookie"></iframe>
     </div>
   </body>
 </html>
