@@ -114,6 +114,14 @@ CSS TABLE OF CONTENTS
     width: 200px;
     height: auto;
   }
+  
+  #about-flex {
+    margin-bottom: 3rem;
+  }
+  
+  #about-flex > #quote, #about-flex > div {
+    width: 100% !important;
+  }
 }
 
 @media only screen and (max-width: 850px) {

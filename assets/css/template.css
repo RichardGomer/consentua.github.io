@@ -181,6 +181,11 @@ section {
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 3.0 - Responsive text */
 
+@font-face {
+    font-family: 'roman-modern-slanted';
+    src: url("./assets/fonts/lmromanslant10-regular.otf") format("opentype");
+}
+
 p, blockquote, a
 {
   line-height: 1.5rem;
@@ -282,7 +287,7 @@ nav {
     display: inline;
     margin-left: 3em;
   }
-  
+
     nav > ul > li:first-of-type {
       display: none;
     }
@@ -375,6 +380,7 @@ footer {
 
 .red {
   background: #9A1144;
+  color: #fff;
 }
 
 .white {
