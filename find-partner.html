@@ -18,109 +18,109 @@ custom_js: validation.js
           <div class="onecol">
             <p>Consentua is available through a range of trusted partners, who can provide the knowledge and skills to get you set up. Whether you’re an enterprise customer looking for an on-premises deployment, or an SME looking for a cloud solution, we’ll find the perfect partner for you.</p>
           </div>
+
+          <!-- Begin zoho form -->
+
+          <!-- Change or deletion of the name attributes in the input tag will lead to empty values on record submission-->
+          <form action='https://forms.zohopublic.eu/knownow/form/ConsentuacomFindPartner/formperma/MPyfks-6pb0XMvrbwdbnCN6AnAEZH3snhiT6r0RmyvA/htmlRecords/submit' name='form' id='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
+
+              <input type="hidden" name="zf_referrer_name" value=""><!-- To Track referrals , place the referrer name within the " " in the above hidden input field -->
+              <input type="hidden" name="zf_redirect_url" value=""><!-- To redirect to a specific page after record submission , place the respective url within the " " in the above hidden input field -->
+              <input type="hidden" name="zc_gad" value=""><!-- If GCLID is enabled in Zoho CRM Integration, click details of AdWords Ads will be pushed to Zoho CRM -->
+
+              <!--Name-->
+              <p id="inName">
+                  <label>Your Name *</label>
+                  <span><input type="text" maxlength="255" name="Name_First" fieldType=7 /><label class="small">First</label></span>
+                  <span><input type="text" maxlength="255" name="Name_Last" fieldType=7 /><label class="small">Last</label></span>
+              </p>
+
+              <!--Email-->
+              <p>
+                  <label>Your Email Address *</label>
+                  <input type="text" maxlength="255" name="Email" value="" fieldType=9 />
+              </p>
+
+              <!--Phone-->
+              <p>
+                  <label>Your Phone Number</label>
+                  <input type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1" isCountryCodeEnabled=false maxlength="20" value="" fieldType=11 id="international_PhoneNumber_countrycode" />
+              </p>
+
+              <!--Single Line-->
+              <p>
+                  <label>Company Name</label>
+                  <input  type="text" name="SingleLine" value="" fieldType=1 maxlength="255" />
+              </p>
+
+              <!--Dropdown-->
+              <p>
+                  <label>How many consent records do you anticipate managing in Consentua? *</label>
+                  <select name="Dropdown"><option selected="true" value="-Select-">-Select-</option>
+                      <option value="Less&#x20;than&#x20;a&#x20;Thousand">Less than a Thousand</option>
+                      <option value="Up&#x20;to&#x20;Ten&#x20;Thousand">Up to Ten Thousand</option>
+                      <option value="Up&#x20;to&#x20;a&#x20;Hundred&#x20;Thousand">Up to a Hundred Thousand</option>
+                      <option value="Up&#x20;to&#x20;a&#x20;Million">Up to a Million</option>
+                      <option value="More&#x20;than&#x20;a&#x20;Million" selected>More than a Million</option>
+                  </select>
+              </p>
+
+              <p>
+                  <label>Tell us a bit about what you'd like to use Consentua for: *</label>
+                  <textarea name="MultiLine" maxlength="65535"></textarea>
+              </p>
+
+              <input  type="hidden" name="SingleLine1" id="consentuauid" value="" fieldType=1 maxlength="255" /><!-- Consentua UID -->
+
+
+              <!-- This iframe will hold the consentua interaction -->
+              <iframe id="consentua-widget" src="" style="display: block; box-model: border-box; width: 100%; max-width: 500px;"></iframe>
+
+              <script>
+                  $().ready(function(){
+                      var cid = '266'; // Customer ID
+                      var sid = '25'; // Consentua service ID
+                      var tid = '120'; // Template ID
+                      var uid = false;
+                      var cb_ready = function(msg) {
+                          $('#consentuauid').val(msg.message.uid);
+                      }
+                      var cb_set = function (msg) {
+                          console.log("Consent received from Consentua", msg);
+                          if(msg.message.consents[365]) {
+                              $('#submit').removeAttr('disabled', 'disabled');
+                          } else {
+                              $('#submit').attr('disabled', 'disabled');
+                          }
+                      };
+                      var iframe = document.getElementById('consentua-widget');
+                      cmgr.getID().then(function(uid){
+                          var cwrap = new ConsentuaEmbed({
+                              iframe: iframe,
+                              clientid: cid,
+                              uid: uid,
+                              templateid: tid,
+                              serviceid: sid
+                          });
+                          cwrap.onset = cb_set;
+                          cwrap.onready = cb_ready;
+                      });
+                      // Disable submission on the form, until consent has been set
+                      $('#submit').attr('disabled', 'disabled');
+                      // Validation
+                      $('#submit').click(function(){
+                          console.log('Validate...');
+                          $('input,select,textarea').removeClass('error');
+                          if(zf_ValidateAndSubmit()){
+                              $('form').submit();
+                          }
+                      });
+                  });
+              </script>
+          </form>
+
+          <button id="submit">Submit</button>
         </div>
-
-        <!-- Begin zoho form -->
-
-        <!-- Change or deletion of the name attributes in the input tag will lead to empty values on record submission-->
-        <form action='https://forms.zohopublic.eu/knownow/form/ConsentuacomFindPartner/formperma/MPyfks-6pb0XMvrbwdbnCN6AnAEZH3snhiT6r0RmyvA/htmlRecords/submit' name='form' id='form' method='POST' accept-charset='UTF-8' enctype='multipart/form-data'>
-
-            <input type="hidden" name="zf_referrer_name" value=""><!-- To Track referrals , place the referrer name within the " " in the above hidden input field -->
-            <input type="hidden" name="zf_redirect_url" value=""><!-- To redirect to a specific page after record submission , place the respective url within the " " in the above hidden input field -->
-            <input type="hidden" name="zc_gad" value=""><!-- If GCLID is enabled in Zoho CRM Integration, click details of AdWords Ads will be pushed to Zoho CRM -->
-
-            <!--Name-->
-            <p id="inName">
-                <label>Your Name *</label>
-                <span><input type="text" maxlength="255" name="Name_First" fieldType=7 /><label class="small">First</label></span>
-                <span><input type="text" maxlength="255" name="Name_Last" fieldType=7 /><label class="small">Last</label></span>
-            </p>
-
-            <!--Email-->
-            <p>
-                <label>Your Email Address *</label>
-                <input type="text" maxlength="255" name="Email" value="" fieldType=9 />
-            </p>
-
-            <!--Phone-->
-            <p>
-                <label>Your Phone Number</label>
-                <input type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1" isCountryCodeEnabled=false maxlength="20" value="" fieldType=11 id="international_PhoneNumber_countrycode" />
-            </p>
-
-            <!--Single Line-->
-            <p>
-                <label>Company Name</label>
-                <input  type="text" name="SingleLine" value="" fieldType=1 maxlength="255" />
-            </p>
-
-            <!--Dropdown-->
-            <p>
-                <label>How many consent records do you anticipate managing in Consentua? *</label>
-                <select name="Dropdown"><option selected="true" value="-Select-">-Select-</option>
-                    <option value="Less&#x20;than&#x20;a&#x20;Thousand">Less than a Thousand</option>
-                    <option value="Up&#x20;to&#x20;Ten&#x20;Thousand">Up to Ten Thousand</option>
-                    <option value="Up&#x20;to&#x20;a&#x20;Hundred&#x20;Thousand">Up to a Hundred Thousand</option>
-                    <option value="Up&#x20;to&#x20;a&#x20;Million">Up to a Million</option>
-                    <option value="More&#x20;than&#x20;a&#x20;Million" selected>More than a Million</option>
-                </select>
-            </p>
-
-            <p>
-                <label>Tell us a bit about what you'd like to use Consentua for: *</label>
-                <textarea name="MultiLine" maxlength="65535"></textarea>
-            </p>
-
-            <input  type="hidden" name="SingleLine1" id="consentuauid" value="" fieldType=1 maxlength="255" /><!-- Consentua UID -->
-
-
-            <!-- This iframe will hold the consentua interaction -->
-            <iframe id="consentua-widget" src="" style="display: block; box-model: border-box; width: 100%; max-width: 500px;"></iframe>
-
-            <script>
-                $().ready(function(){
-                    var cid = '266'; // Customer ID
-                    var sid = '25'; // Consentua service ID
-                    var tid = '120'; // Template ID
-                    var uid = false;
-                    var cb_ready = function(msg) {
-                        $('#consentuauid').val(msg.message.uid);
-                    }
-                    var cb_set = function (msg) {
-                        console.log("Consent received from Consentua", msg);
-                        if(msg.message.consents[365]) {
-                            $('#submit').removeAttr('disabled', 'disabled');
-                        } else {
-                            $('#submit').attr('disabled', 'disabled');
-                        }
-                    };
-                    var iframe = document.getElementById('consentua-widget');
-                    cmgr.getID().then(function(uid){
-                        var cwrap = new ConsentuaEmbed({
-                            iframe: iframe,
-                            clientid: cid,
-                            uid: uid,
-                            templateid: tid,
-                            serviceid: sid
-                        });
-                        cwrap.onset = cb_set;
-                        cwrap.onready = cb_ready;
-                    });
-                    // Disable submission on the form, until consent has been set
-                    $('#submit').attr('disabled', 'disabled');
-                    // Validation
-                    $('#submit').click(function(){
-                        console.log('Validate...');
-                        $('input,select,textarea').removeClass('error');
-                        if(zf_ValidateAndSubmit()){
-                            $('form').submit();
-                        }
-                    });
-                });
-            </script>
-        </form>
-
-        <button id="submit">Submit</button>
 
         <script type="text/javascript">
             var zf_DateRegex = new RegExp("^(([0][1-9])|([1-2][0-9])|([3][0-1]))[-](Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[-](?:(?:19|20)[0-9]{2})$");
