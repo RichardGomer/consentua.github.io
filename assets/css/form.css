@@ -16,11 +16,11 @@ input[type="text"],select,textarea {
 }
 
 input[type="text"],select {
-    width: 400px;
+    width: 70vw;
 }
 
 textarea {
-    width: 400px;
+    width: 70vw;
     height: 150px;
 }
 
