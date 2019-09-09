@@ -2,6 +2,10 @@ form {
 
 }
 
+form > h3 {
+  margin-top: 0;
+}
+
 label {
     display: block;
     font-size: 0.9em;
