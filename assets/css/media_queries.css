@@ -142,7 +142,7 @@ CSS TABLE OF CONTENTS
   }
 
   .flex > .onecol {
-    box-shadow: 0;
+    box-shadow: none;
   }
 
   .mobile-collapse {
