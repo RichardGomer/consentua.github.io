@@ -140,6 +140,15 @@ CSS TABLE OF CONTENTS
   footer > .flex > div {
     width: 50%;
   }
+
+  .flex > .onecol {
+    box-shadow: 0;
+  }
+
+  .mobile-collapse {
+    margin-top: -3em;
+    margin-bottom: -6em;
+  }
 }
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
