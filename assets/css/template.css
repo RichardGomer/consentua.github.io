@@ -22,6 +22,7 @@ CSS TABLE OF CONTENTS
 7.0 - Flex boxes
     7.1 - Flex box containing 3 divs
     7.2 - Flex box containing 2 divs
+    7.3 - Flex box containing 1 div
 8.0 - Cookies
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -489,6 +490,13 @@ footer {
 
   .flex > .twocols > a {
     margin-bottom: 0;
+  }
+
+  /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  7.3 - Flex box contaning 1 div */
+
+  .flex > .onecol {
+    width: 100%;
   }
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
