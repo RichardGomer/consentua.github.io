@@ -433,7 +433,7 @@ footer {
     margin-top: 0;
   }
 
-  .flex > div > h3, .flex > div > div > i {
+  .flex > div > div > i {
     color: #9A1144;
   }
 
@@ -498,6 +498,10 @@ footer {
   .flex > .onecol {
     width: 100%;
   }
+
+    .flex > .onecol > h2 {
+      text-align: left;
+    }
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 8.0 - Cookies */
