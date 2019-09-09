@@ -469,28 +469,28 @@ footer {
       cursor: pointer;
     }
 
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-7.1 - Flex box containing 3 divs */
+  /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  7.1 - Flex box containing 3 divs */
 
-.flex > div {
-  width: 20%;
-}
-
-  .flex > div > div > i {
-    margin-right: 1.5em;
-    display: inline;
+  .flex > div {
+    width: 20%;
   }
 
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-7.2 - Flex box contaning 2 divs */
+    .flex > div > div > i {
+      margin-right: 1.5em;
+      display: inline;
+    }
 
-.flex > .twocols {
-  width: 25%;
-}
+  /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  7.2 - Flex box contaning 2 divs */
 
-  .flex > .twocols > a {
-    margin-bottom: 0;
+  .flex > .twocols {
+    width: 25%;
   }
+
+    .flex > .twocols > a {
+      margin-bottom: 0;
+    }
 
   /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   7.3 - Flex box contaning 1 div */
