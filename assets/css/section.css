@@ -70,19 +70,8 @@ header {
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 3.0 - Company / About */
 
-#about-flex {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: start;
-}
-
-  #about-flex > div {
-    width: 35%;
-  }
-
 #quote {
-  width: 50%;
+  width: 100%;
   background: #f5f5f5;
   box-shadow: 0 0 10px #333333;
   padding: 3em;
