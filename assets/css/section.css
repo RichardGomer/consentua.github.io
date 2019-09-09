@@ -27,6 +27,8 @@ header {
   height: 14em;
   background: #f5f5f5;
   padding-top: 4rem;
+  padding-left: 10vw;
+  padding-right: 10vw;
   margin-left: -10vw;
   margin-right: -10vw;
 }
@@ -97,3 +99,9 @@ header {
     margin-bottom: 0;
     text-align: center;
   }
+
+@media only screen and (max-width: 1400px) {
+  header {
+    height: 7em;
+  }
+}
