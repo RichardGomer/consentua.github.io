@@ -388,6 +388,11 @@ footer {
   color: #fff;
 }
 
+.dark-red {
+  background: rgb(126, 38, 46);
+  color: #fff;
+}
+
 .white {
   background: #fff;
 }
