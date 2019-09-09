@@ -146,8 +146,11 @@ CSS TABLE OF CONTENTS
   }
 
   .mobile-collapse {
+    width: 100vw;
     margin-top: -3em;
     margin-bottom: -6em;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
