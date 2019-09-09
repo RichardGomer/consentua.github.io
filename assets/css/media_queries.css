@@ -141,7 +141,7 @@ CSS TABLE OF CONTENTS
     width: 50%;
   }
 
-  .flex > .onecol {
+  #content > section > div > .flex > .onecol {
     box-shadow: none;
   }
 
