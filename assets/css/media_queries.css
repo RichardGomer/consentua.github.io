@@ -112,11 +112,6 @@ CSS TABLE OF CONTENTS
     text-align: center;
   }
 
-  #logo-container > img, .widecenter > img {
-    width: 200px;
-    height: auto;
-  }
-
   #about-flex {
     margin-bottom: 3rem;
   }
@@ -154,10 +149,6 @@ CSS TABLE OF CONTENTS
   #content > header > div > p {
     font-size: 1em;
     line-height: 1.5rem;
-  }
-
-  #logo-container > img, .widecenter > img {
-    width: 150px;
   }
 }
 
