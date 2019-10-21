@@ -165,18 +165,13 @@
 
 <section class="white">
   <div class="widecenter">
-    <h1 style="text-align: center;">Two empty boxes</h1>
-    <div style="margin-top: 3rem; justify-content: space-around;" class="flex">
-      <div class="twocols">
-        <h2>Box 1</h2>
-        <p>Some content.</p>
-        <a href="/find-partner.html" class="button">A link</a>
-      </div>
+    <div style="justify-content: space-around;" class="flex">
+      <div class="onecol">
+        <h2>Consentua partner programme</h2>
+        <p>Our partner programme allows resellers, consultants and other specialist providers to bring Consentua to new verticals through re-selling on-premises licenses or providing a tailored software-as-a-service offering. If you work with clients for whom Consentua could be a good choice, then please do get in touch with Chris Cooper to receive a copy of our partner pack and arrange an initial discussion.</p>
 
-      <div class="twocols">
-        <h2>Box 2</h2>
-        <p>Some other content.</p>
-        <a href="/become-partner.html" class="button">Another link</a>
+        <h3>Contact us</h3>
+        <p><a href="mailto:chris@consentua.com">Email</a> Chris Cooper, CTO or call the office on +44(0)23 9216 0640</p>
       </div>
     </div>
   </div>
@@ -310,6 +305,10 @@
                     serviceid: "25"
                 });
 
+                $('#cookie-skip').click(function(){
+                    $('#cookie-consent').hide();
+                });
+
                 cwrap.onset = function (msg) {
                     console.log("Consent received from Consentua", msg);
                     let c = msg.message.consents || {};
@@ -326,7 +325,10 @@
     //]]>
     </script>
     <div id="cookie-consent" style="display:none">
-        <iframe id="consent-cookie"></iframe>
+        <div id="cookie-inner">
+            <iframe id="consent-cookie"></iframe>
+            <button id="cookie-skip">Skip »</button>
+        </div>
     </div>
   </body>
 </html>

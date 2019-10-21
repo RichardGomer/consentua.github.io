@@ -514,6 +514,7 @@ footer {
 #cookie-consent {
   position: fixed;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   top: 0;
@@ -524,6 +525,19 @@ footer {
   background: rgba(128, 128, 128, 0.5);
 }
 
-  #cookie-consent > iframe {
-    width: 70%;
-  }
+    #cookie-inner {
+        display: block;
+        background: #fff;
+        width: 70vw;
+        padding: 20px;
+    }
+
+        #cookie-skip {
+            display: block;
+            padding: 5px;
+            float: right;
+        }
+
+        #cookie-consent > iframe {
+
+        }

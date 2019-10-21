@@ -4,7 +4,7 @@
     <!-- Page config -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Consentua - Consent choice & control</title>
+    <title>Consentua</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/assets/css/template.css" type="text/css">
@@ -172,7 +172,7 @@
 
 <section class="dark-white">
   <div class="centerbox">
-    <h1>Go beyond what is required</h1>
+    <h1>Go beyond what's required</h1>
     <p>Our platform surpasses GDPR requirements and exceeds what your customers expect to find in a digital marketplace.</p>
     <ul id="ticklist">
       <li class="tick">Know your customers</li>
@@ -188,17 +188,17 @@
     <h1>Deploy Consentua as your “consent layer”, on-premises or in the cloud</h1>
 
     <div style="margin-top: 3em;" class="flex">
-      <div>
+      <div class="dark-red">
         <h2>Collect</h2>
         <p>Capture consent throughout the customer journey as you need it.<br /><br />You can use our existing interactions out of the box, or use our SDK to create new ones.</p>
       </div>
 
-      <div>
+      <div class="dark-red">
         <h2>Store</h2>
         <p>You and your customers will be able to control data processing in real-time.<br /><br />You'll also be able to tie Consentua’s data to your own operations software using our robust API.</p>
       </div>
 
-      <div>
+      <div class="dark-red">
         <h2>Demonstrate</h2>
         <p>You'll know how, why and where consent was collected.<br /><br />Prove your compliance internally and externally, and identify where your practices could be improved.</p>
       </div>
@@ -393,6 +393,10 @@
                     serviceid: "25"
                 });
 
+                $('#cookie-skip').click(function(){
+                    $('#cookie-consent').hide();
+                });
+
                 cwrap.onset = function (msg) {
                     console.log("Consent received from Consentua", msg);
                     let c = msg.message.consents || {};
@@ -409,7 +413,10 @@
     //]]>
     </script>
     <div id="cookie-consent" style="display:none">
-        <iframe id="consent-cookie"></iframe>
+        <div id="cookie-inner">
+            <iframe id="consent-cookie"></iframe>
+            <button id="cookie-skip">Skip »</button>
+        </div>
     </div>
   </body>
 </html>

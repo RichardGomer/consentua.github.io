@@ -22,6 +22,7 @@ CSS TABLE OF CONTENTS
 7.0 - Flex boxes
     7.1 - Flex box containing 3 divs
     7.2 - Flex box containing 2 divs
+    7.3 - Flex box containing 1 div
 8.0 - Cookies
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -387,6 +388,11 @@ footer {
   color: #fff;
 }
 
+.dark-red {
+  background: #8a0f3d;
+  color: #fff;
+}
+
 .white {
   background: #fff;
 }
@@ -416,7 +422,7 @@ footer {
   }
 
   #content > section > div > .flex > div {
-    box-shadow: 0 0 10px #333333;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 3em;
   }
 
@@ -432,7 +438,7 @@ footer {
     margin-top: 0;
   }
 
-  .flex > div > h3, .flex > div > div > i {
+  .flex > div > div > i {
     color: #9A1144;
   }
 
@@ -468,28 +474,39 @@ footer {
       cursor: pointer;
     }
 
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-7.1 - Flex box containing 3 divs */
+  /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  7.1 - Flex box containing 3 divs */
 
-.flex > div {
-  width: 20%;
-}
-
-  .flex > div > div > i {
-    margin-right: 1.5em;
-    display: inline;
+  .flex > div {
+    width: 20%;
   }
 
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-7.2 - Flex box contaning 2 divs */
+    .flex > div > div > i {
+      margin-right: 1.5em;
+      display: inline;
+    }
 
-.flex > .twocols {
-  width: 25%;
-}
+  /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  7.2 - Flex box contaning 2 divs */
 
-  .flex > .twocols > a {
-    margin-bottom: 0;
+  .flex > .twocols {
+    width: 25%;
   }
+
+    .flex > .twocols > a {
+      margin-bottom: 0;
+    }
+
+  /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  7.3 - Flex box contaning 1 div */
+
+  .flex > .onecol {
+    width: 100%;
+  }
+
+    .flex > .onecol > h2 {
+      text-align: left;
+    }
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 8.0 - Cookies */
@@ -497,6 +514,7 @@ footer {
 #cookie-consent {
   position: fixed;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   top: 0;
@@ -507,6 +525,19 @@ footer {
   background: rgba(128, 128, 128, 0.5);
 }
 
-  #cookie-consent > iframe {
-    width: 70%;
-  }
+    #cookie-inner {
+        display: block;
+        background: #fff;
+        width: 70vw;
+        padding: 20px;
+    }
+
+        #cookie-skip {
+            display: block;
+            padding: 5px;
+            float: right;
+        }
+
+        #cookie-consent > iframe {
+
+        }

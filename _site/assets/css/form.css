@@ -2,6 +2,10 @@ form {
 
 }
 
+form > h3 {
+  margin-top: 0;
+}
+
 label {
     display: block;
     font-size: 0.9em;
@@ -16,11 +20,11 @@ input[type="text"],select,textarea {
 }
 
 input[type="text"],select {
-    width: 400px;
+    width: 70vw;
 }
 
 textarea {
-    width: 400px;
+    width: 70vw;
     height: 150px;
 }
 

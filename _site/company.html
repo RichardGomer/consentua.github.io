@@ -164,13 +164,24 @@
 </header>
 
 <section>
-  <div class="wideleftalign">
-    <div id="about-flex">
-      <div>
+  <div class="widecenter mobile-collapse">
+    <div style="justify-content: space-around;" class="flex">
+      <div class="onecol">
         <h2>What is Consentua?</h2>
         <p>Consentua is a flexible consent management system that helps organisations to build stronger and safer customer relationships.</p>
 
         <p>Consentua is simple enough to deploy alongside your existing enterprise systems and to adopt incrementally, flexible enough to fit seamlessly with your brand, and powerful enough to cope with whatever requirements you need to throw at it.</p>
+
+        <figure id="quote">
+          <h3>Thanks for your interest!</h3>
+          <p>We built Consentua because we wanted to make it easier for data controllers to comply with the law, respect data subjects’ wishes, and handle personal data with the care and respect it deserves.</p>
+
+          <p>Organisations that need consent need Consentua, so please get in touch if we can help.</p>
+
+          <img src="/assets/images/richard.jpg" alt"Photo of Richard Gomer" />
+
+          <p><strong>Dr Richard Gomer, Product Director</strong></p>
+        </figure>
 
         <h2 style="margin-top: 3rem;">Contact us</h2>
 
@@ -189,16 +200,6 @@
           PO1 2QF
         </address>
       </div>
-
-      <figure id="quote">
-        <p>Thanks for your interest! We built Consentua because we wanted to make it easier for data controllers to comply with the law, respect data subjects’ wishes, and handle personal data with the care and respect it deserves.</p>
-
-        <p>Organisations that need consent need Consentua, so please get in touch if we can help.</p>
-
-        <img src="/assets/images/richard.jpg" alt"Photo of Richard Gomer" />
-
-        <p><strong>Dr Richard Gomer, Product Director</strong></p>
-      </figure>
     </div>
   </div>
 </section>
@@ -331,6 +332,10 @@
                     serviceid: "25"
                 });
 
+                $('#cookie-skip').click(function(){
+                    $('#cookie-consent').hide();
+                });
+
                 cwrap.onset = function (msg) {
                     console.log("Consent received from Consentua", msg);
                     let c = msg.message.consents || {};
@@ -347,7 +352,10 @@
     //]]>
     </script>
     <div id="cookie-consent" style="display:none">
-        <iframe id="consent-cookie"></iframe>
+        <div id="cookie-inner">
+            <iframe id="consent-cookie"></iframe>
+            <button id="cookie-skip">Skip »</button>
+        </div>
     </div>
   </body>
 </html>

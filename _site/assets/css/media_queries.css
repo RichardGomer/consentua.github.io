@@ -113,7 +113,7 @@ CSS TABLE OF CONTENTS
   }
 
   #logo-container > img, .widecenter > img {
-    width: 200px;
+    width: 100%;
     height: auto;
   }
 
@@ -140,6 +140,18 @@ CSS TABLE OF CONTENTS
   footer > .flex > div {
     width: 50%;
   }
+
+  #content > section > div > .flex > .onecol {
+    box-shadow: none;
+  }
+
+  .mobile-collapse {
+    width: 100vw;
+    margin-top: -3em;
+    margin-bottom: -6em;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -154,10 +166,6 @@ CSS TABLE OF CONTENTS
   #content > header > div > p {
     font-size: 1em;
     line-height: 1.5rem;
-  }
-
-  #logo-container > img, .widecenter > img {
-    width: 150px;
   }
 }
 

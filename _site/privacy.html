@@ -607,6 +607,10 @@
                     serviceid: "25"
                 });
 
+                $('#cookie-skip').click(function(){
+                    $('#cookie-consent').hide();
+                });
+
                 cwrap.onset = function (msg) {
                     console.log("Consent received from Consentua", msg);
                     let c = msg.message.consents || {};
@@ -623,7 +627,10 @@
     //]]>
     </script>
     <div id="cookie-consent" style="display:none">
-        <iframe id="consent-cookie"></iframe>
+        <div id="cookie-inner">
+            <iframe id="consent-cookie"></iframe>
+            <button id="cookie-skip">Skip »</button>
+        </div>
     </div>
   </body>
 </html>
