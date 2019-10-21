@@ -88,11 +88,15 @@ tbody {
     border-color: inherit;
 }
 
+a {
+    color: #9A1144;
+}
+
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 2.0 - Sections */
 
 section {
-  padding: 6em 0;
+  padding: 3em 0;
   margin-left: -10vw;
   margin-right: -10vw;
 }

@@ -15,6 +15,7 @@ CSS TABLE OF CONTENTS
 2.0 - Privacy policy
 3.0 - Company/About
 4.0 - Find a partner
+5. - Documentation / Devs
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -24,10 +25,10 @@ CSS TABLE OF CONTENTS
 
 header {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
   height: auto;
-  background: #f5f5f5;
   padding-top: 4rem;
   padding-left: 10vw;
   padding-right: 10vw;
@@ -40,8 +41,8 @@ header {
     line-height: 2.75rem;
     margin: 0;
     font-weight: 700;
-    margin-top: 6rem;
-    margin-bottom: 6rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
   }
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -113,4 +114,56 @@ header {
   margin-right: -3em;
   margin-bottom: -3em;
   background: #f5f5f5;
+}
+
+
+/* Docs */
+.docs {
+    font-size: 12pt;
+    color: #444;
+}
+
+.docs > div {
+    max-width: 800px;
+}
+
+.docs  h2 {
+    color: #9a1144;
+    margin: 4rem 0 1.5rem 0;
+}
+
+.docs a {
+    font-weight: bold;
+}
+
+
+.docs p.indent {
+    padding-left: 2vw;
+}
+
+.docs p.indent::before {
+    content: "\00BB";
+    color: #9a1144;
+    margin-left: -10px;
+    margin-right: 10px;
+}
+
+.docs ol {
+
+}
+
+.docs li {
+    margin: 5px 0 5px 0;
+}
+
+.code {
+    font-family: monospace;
+    font-weight: bold;
+    color: #222;
+}
+
+span.code {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
 }

@@ -4,11 +4,12 @@
     <!-- Page config -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Developers</title>
+    <title>Consentua for Developers</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/assets/css/template.css" type="text/css">
     <link rel="stylesheet" href="/assets/css/media_queries.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/code.css" type="text/css">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap" rel="stylesheet">
@@ -41,7 +42,7 @@
 
       <nav>
   <a href="/">
-    <svg version="1.1" class="main-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 751.3 116.7" xml:space="preserve">
+    <svg version="1.1" class="main-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 751.3 120" xml:space="preserve">
       <path fill="#9A1144" d="M51.1,87.9c-0.5,3.1-1.5,6.1-3,8.8c-1,1.9-2.6,3.3-4.6,4.2c-1.8,0.7-3.7,1-5.7,1c-2.3,0-4.5-0.5-6.5-1.5
     	c-1.9-1-3.4-3-4.6-5.9c-1.5-4-2.4-8.1-2.7-12.4c-0.7-7-1-14-0.9-21c0-8.1,0.2-15,0.6-20.6c0.3-4.6,1-9.2,2.2-13.6
     	c1.1-3.5,2.5-6,4.4-7.5c2-1.6,4.5-2.4,7.1-2.3c5.2,0,8.8,1.9,10.8,5.7c2,3.8,3,9.9,3,18.2h23c0-4.5-0.3-8.9-0.9-13.4
@@ -159,52 +160,81 @@
   </ul>
 </nav>
 
-      <header style="margin-bottom: -3rem;">
-  <h1>Developers</h1>
+      <header>
+<h1>Developers</h1>
+<p>Consentua was designed to be integrated with existing systems and customer journeys. Find out more about how Consentua works and how to deploy it.</p>
 </header>
 
-<section>
-  <div class="wideleftalign">
-    <h2>Consentua 101: A quick guide to getting started with Consentua</h2>
-    <p>Consentua is a consent management system. It collects consent from your users and allows you to check, in real-time, whether you currently have consent to a specific purpose.<br /><br />
-    Organisations use Consentua to keep detailed records about what they do (and don’t) have consent to do with people’s personal data.<br /><br />
-    There are two main ways that developers can use Consentua.<br /><br />
-    A. Collecting Consent, by embedding consent interactions into Websites or apps using our WebSDK.<br /><br />
-    B. Checking for Consent, by querying consent records via our API.<br /><br />
-    Some organisations also develop for a third use case:<br /><br />
-    C. Building new ways of asking for Consent, using the interaction side of our WebSDK.<br /><br />
-    Whichever case you’re currently implementing, we have tutorials and example code available.</p>
+<section class="docs">
+<div class="wideleftalign">
+<p>Consentua is a consent management system. It collects consent from your users and allows you to check, in real-time, whether you currently have consent to a specific purpose.
+Organisations use Consentua to keep detailed records about what they do (and don’t) have consent to do with people’s personal data.</p>
 
-    <h2>1. How Consentua Works</h2>
-    <p>There are a few key concepts that you need to be familiar with in order to understand how Consentua works. This quick scenario explains the most important parts of the Consentua world.<br /><br />
-    Bob Corp would like to get consent from Alice to send her a monthly email newsletter. Sending the newsletter is a <strong>Purpose</strong>.<br /><br />
-    To collect Consent, Bob Corp needs to create a <strong>Consent Template</strong>. Consent Templates include one or more Purposes, and specify a <strong>Consent Interaction</strong> that should be used to ask for consent. A Consent Interaction is a specific user interface that can display the Consent Template to a user. Consentua provides some Consent Interactions to cover common scenarios, but you can also create new ones using HTML, CSS and Javascript.<br /><br />
-    Bob Corp embeds the <strong>Consent Template</strong> into their web page using the Consentua WebSDK. The WebSDK loads the defined Template and the Consent Interaction that should be used to display it. When the interaction is displayed to Alice in her Web Browser, a new Consentua User ID is created in Consentua. Bob Corp stores the <strong>Consentua User ID</strong> – along with other information about Alice – in their customer database.<br /><br />
-    When Alice interacts with the Consent Interaction to give (or not give!) her Consent, Consentua stores her responses. If Alice interacts with another Consent Interaction in the future, the same Consentua User ID can be re-used, and so there will be a single record that contains all of Alice’s up-to-date consent responses.<br /><br />
-    Each month, when Bob Corp are sending their Newsletter, their mailing list system uses Alice’s Consentua User ID to make a request to the <strong>Consentua API</strong>. The Consentua API indicates whether Alice has consented to different purposes – and the mailing list software can email her – or not – based on whether Consent is available.<br /><br/>
-    (Include demo from http://websdk.consentua.com/ here – somehow… Link, iframe, just copy/reformat?)</p>
+<p>There are two main ways that developers can use Consentua.</p>
 
-    <h2>2. Collecting Consent using the Web SDK (Use case A)</h2>
-    <p>Consentua’s WebSDK makes it easy to collect consent in websites and mobile apps. The WebSDK interacts with the Consentua API to load and display consent templates that have been configured.<br /><br />
-      To embed the WebSDK, you need to know a few pieces of information: The Consentua Client ID of your organisation, the Template ID of the consent template you want to display and – it if already exists – the User ID of the person who you’re asking for consent.<br /><br />
-      The WebSDK collects and stores consent in the Consentua service. The only thing that you need to store yourself is the User ID. The User ID allows you to look up consent later, when you need it.<br /><br />
-      To help you get started, we’ve put together a simple example of how Consentua could be embedded in a web form.</p>
+<p class="indent"><a href="#collect">Collecting Consent</a>, by embedding consent interactions into Websites or apps using our WebSDK.</p>
+<p class="indent"><a href="#query">Checking for Consent</a>, by querying consent records via our API.</p>
 
-    <h2>3. Checking for Consent (Use case B)</h2>
-    <p>Consent is only useful if it’s joined up with your actual data processing activities. There are two ways that you can check for consent using Consentua. The first is to use the WebSDK - which is convenient in Websites where it’s already deployed for consent collection - but a more general method is to directly integrate with the Consentua API.<br /><br />
-    The Consentua API is a REST’ful service, accessed via the Web. The full API documentation is available at …..<br /><br />
-    We provide a reference client in Javascript, which will run in most Web browsers or under NodeJS. You can find it at (address)<br /><br />
-    (CURL example?)</p>
+<p>Some organisations also develop for a third use case:</p>
+<p class="indent"><a href="#intxn">Building new ways of asking for Consent</a>, using the interaction side of our WebSDK.</p>
 
-    <h2>4. Building new ways of asking for consent (Use case C)</h2>
-    <p>Consent Interactions are the different interfaces that you can use to ask for consent. Consentua provides some generic interactions out of the box, but you can create new ones to better match the look and feel of your website, to provide new flows, or even to integrate with novel situations like negotiable terms!<br /><br />
-    Interactions are built using HTML, CSS and Javascript, and are integrated into Consentua using our  Web SDK. Custom interactions work just like Consentua’s out-of-the-box interactions, and – once your custom interaction is developed - you don’t need to make any changes to how you embed Consentua. Just register your interaction in Consentua and update your consent templates through the dashboard.<br /><br />
-    To help explain how custom interactions work, we’ll briefly explain how Consentua serves up consent interactions:<br /><br />
-    When you embed a Consentua template into a website (or an app, using a WebView), the WebSDK loads the Consentua service into an iframe. The Consentua service retrieves the requested template, checks for any existing consent and then loads the interaction that’s configured in the template into another iframe. Communication between the page that’s embedding Consentua, the Consentua Service, and the interaction is handled using cross-document messaging – a feature that’s built into modern Web browsers.  When consent is granted, or revoked, the interaction sends a message to the Consentua service; and the Consentua service reacts by saving the new consent state and informing the embedding page.<br /><br />
-    The separation between the embedding page, the Consentua service, and the interaction makes creating new interactions quite straightforward. You don’t need to worry about interacting with the Consentua Web API directly, because all the functionality that you need is exposed for you to use  in javascript via the window.consentua object.<br /><br />
-    We’ve put together an example to help you get started – you’ll find it at https://github.com/Consentua/custom-ui-example/<br /><br />
-    The example assumes that it’s being served from http://127.0.0.1:8080/ (but can be easily tweaked to work for another URL). `example.html` shows how to embed a custom interaction – during development – by passing an additional option into the ConsentuaEmbed function; and the custom interaction itself is defined in ui/index.html</p>
-  </div>
+Whichever case you’re currently implementing, we have tutorials and example code available.</p>
+
+
+<h2>How Consentua Works</h2>
+
+<p>There are a few key concepts that you need to be familiar with in order to understand how Consentua works. This quick scenario explains the most important parts of the Consentua world.</p>
+
+<p>Bob Corp would like to get consent from Alice to send her a monthly email newsletter. Sending the newsletter is a <strong>Purpose</strong>.</p>
+
+<p>To collect Consent, Bob Corp needs to create a <strong>Consent Template</strong>. Consent Templates include one or more Purposes, and specify a <strong>Consent Interaction</strong> that should be used to ask for consent. A Consent Interaction is a specific user interface that can display the Consent Template to a user. Consentua provides some Consent Interactions to cover common scenarios, but you can also create new ones using HTML, CSS and Javascript.</p>
+
+<p>Bob Corp embeds the <strong>Consent Template</strong> into their web page using the Consentua WebSDK. The WebSDK loads the defined Template and the Consent Interaction that should be used to display it. When the interaction is displayed to Alice in her Web Browser, a new Consentua User ID is created in Consentua. Bob Corp stores the <strong>Consentua User ID</strong> – along with other information about Alice – in their customer database.</p>
+
+<p>When Alice interacts with the Consent Interaction to give (or not give!) her Consent, Consentua stores her responses. If Alice interacts with another Consent Interaction in the future, the same Consentua User ID can be re-used, and so there will be a single record that contains all of Alice’s up-to-date consent responses.</p>
+
+<p>Each month, when Bob Corp are sending their Newsletter, their mailing list system uses Alice’s Consentua User ID to make a request to the <strong>Consentua API</strong>. The Consentua API indicates whether Alice has consented to different purposes – and the mailing list software can email her – or not – based on whether Consent is available.</p>
+
+
+
+<h2><a name="collect">Collecting Consent using the Web SDK</a></h2>
+
+<p>Consentua’s WebSDK makes it easy to collect consent in websites and mobile apps. The WebSDK interacts with the Consentua API to load and display consent templates that have been configured.</p>
+
+<p>To embed the WebSDK, you need to know a few pieces of information: The Consentua Client ID of your organisation, the Template ID of the consent template you want to display and – it if already exists – the User ID of the person who you’re asking for consent.<br /><br />
+The WebSDK collects and stores consent in the Consentua service. The only thing that you need to store yourself is the User ID. The User ID allows you to look up consent later, when you need it.</p>
+
+<p>To help you get started, we’ve put together a simple example of how Consentua could be embedded in a web form, which you' find at <a href="https://websdk.consentua.com/" target="_blank">websdk.consentua.com</a></p>
+
+
+<h2><a name="query">Checking for Consent</a></h2>
+
+<p>Consent is only useful if it’s joined up with your actual data processing activities. There are two ways that you can check for consent using Consentua. The first is to use the WebSDK - which is convenient in Websites where it’s already deployed for consent collection - but a more general method is to directly integrate with the Consentua API.</p>
+
+<p>The Consentua API is a REST’ful service, accessed via the Web. The full API documentation is available at <a href="https://api.consentua.com/" target="_blank">api.consentua.com</a></p>
+
+<p>We provide a reference client in Javascript, which will run in most Web browsers or under NodeJS. You'll find it on GitHub, at <a href="https://github.com/Consentua/consentua-client-js/" target="_blank">github.com/Consentua/consentua-client-js/</a></p>
+
+
+
+<h2><a name="intxn">Building new ways of asking for consent</a></h2>
+
+<p>Consent Interactions are the different interfaces that you can use to ask for consent. Consentua provides some generic interactions out of the box, but you can create new ones to better match the look and feel of your website, to provide new flows, or even to integrate with novel situations like negotiable terms!<br /><br />
+Interactions are built using HTML, CSS and Javascript, and are integrated into Consentua using our  Web SDK. Custom interactions work just like Consentua’s out-of-the-box interactions, and – once your custom interaction is developed - you don’t need to make any changes to how you embed Consentua. Just register your interaction in Consentua and update your consent templates through the dashboard.</p>
+<p>To help explain how custom interactions work, we’ll briefly explain how Consentua serves up consent interactions:</p>
+<ol>
+    <li>When you embed a Consentua template into a website (or an app, using a WebView), the WebSDK loads the Consentua service into an iframe.</li>
+    <li>The Consentua service retrieves the requested template, checks for any existing consent and then loads the interaction that’s configured in the template into another iframe. Communication between the page that’s embedding Consentua, the Consentua Service, and the interaction is handled using cross-document messaging – a feature that’s built into modern Web browsers.</li>
+    <li>When consent is granted, or revoked, the interaction sends a message to the Consentua service; and the Consentua service reacts by saving the new consent state and informing the embedding page.</li>
+</ol>
+
+<p>The separation between the embedding page, the Consentua service, and the interaction makes creating new interactions quite straightforward. You don’t need to worry about interacting with the Consentua Web API directly, because all the functionality that you need is exposed for you to use  in javascript via the window.consentua object.</p>
+
+<p>We’ve put together an example to help you get started – you’ll find it at <a href="https://github.com/Consentua/custom-ui-example/" target="_blank">github.com/Consentua/custom-ui-example/</a></p>
+
+<p>The example assumes that it’s being served from <span class="code">http://127.0.0.1:8080/</span> (but can be easily tweaked to work for another URL). <span class="code">example.html</span> shows how to embed a custom interaction – during development – by passing an additional option into the ConsentuaEmbed function; and the custom interaction itself is defined in ui/index.html</p>
+</div>
+
 </section>
 
       <footer>
