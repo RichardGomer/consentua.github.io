@@ -545,3 +545,7 @@ footer {
         #cookie-consent > iframe {
 
         }
+        
+        @media screen and (max-width: 490px) {
+                #cookie-inner { width: 100vw; }
+        }
