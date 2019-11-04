@@ -7,27 +7,6 @@
 ***
 */
 
-/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-CSS TABLE OF CONTENTS
-
-1.0 - Globals
-2.0 - Sections
-    2.1 - Narrow center sections
-    2.2 - Wide center sections
-3.0 - Responsive text
-4.0 - Navigation menu
-5.0 - Footer
-6.0 - Colour palette
-7.0 - Flex boxes
-    7.1 - Flex box containing 3 divs
-    7.2 - Flex box containing 2 divs
-    7.3 - Flex box containing 1 div
-8.0 - Cookies
-
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 1.0 - Globals */
 
@@ -90,6 +69,27 @@ tbody {
 
 a {
     color: #9A1144;
+}
+
+
+/**********
+ * Widgets
+ */
+a.button {
+      border: 1px solid #9A1144;
+      background: #9A1144;
+      display: inline-block;
+      margin: 0 0.5em 0.5em 0.5em;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 1em;
+      padding: 0.5em 1.5em;
+      font-weight: 700;
+}
+
+div.box {
+    padding: 2em;
+
 }
 
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -425,11 +425,6 @@ footer {
     justify-content: space-between;
   }
 
-  #content > section > div > .flex > div {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 3em;
-  }
-
   .flex > div:last-of-type {
     margin-right: 0;
   }
@@ -545,7 +540,7 @@ footer {
         #cookie-consent > iframe {
 
         }
-        
+
         @media screen and (max-width: 490px) {
                 #cookie-inner { width: 100vw; }
         }
