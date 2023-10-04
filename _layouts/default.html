@@ -57,10 +57,22 @@
         var consents = cmgr.getConsents().then(function(consents){
             console.log("Current consent retrieved", consents);
 
-            function onConsent(){
-                console.log("Load Google Tags");
-                $("<script>").attr('type', 'text/javascript').attr('src', 'https://www.googletagmanager.com/gtag/js?id=UA-74260509-3').appendTo('head');
-            }
+        function onConsent(){
+            console.log("Load Google Tags");
+
+            // Load the gtag.js script
+            $("<script>").attr('type', 'text/javascript').attr('src', 'https://www.googletagmanager.com/gtag/js?id=G-LZQNF5PZLQ').appendTo('head');
+
+            // Once the script is loaded, initialize the gtag configuration
+            setTimeout(function() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-LZQNF5PZLQ');
+            }, 1000);  // We're adding a delay to ensure the gtag.js script loads before initializing. Adjust as needed.
+        }
+
 
             if(consents[313] === true) {
                 onConsent();
