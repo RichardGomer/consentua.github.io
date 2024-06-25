@@ -50,61 +50,32 @@
 
     </div>
 
-    <!-- Cookie Consent and Google Analytics -->
-  <script>
+    <!-- Cookie Consent -->
+    <script>
     //<![CDATA[
-    cmgr.getID().then(function(uid) {
-        console.log("UID retrieved:", uid);
-        cmgr.getConsents().then(function(consents) {
+    cmgr.getID().then(function(uid){
+        var consents = cmgr.getConsents().then(function(consents){
             console.log("Current consent retrieved", consents);
 
-            function onConsent() {
-                console.log("Load Google Tags");
+        function onConsent(){
+            console.log("Load Google Tags");
 
-                // Load the gtag.js script
-                $("<script>").attr('type', 'text/javascript').attr('src', 'https://www.googletagmanager.com/gtag/js?id=G-LZQNF5PZLQ').appendTo('head');
+            // Load the gtag.js script
+            $("<script>").attr('type', 'text/javascript').attr('src', 'https://www.googletagmanager.com/gtag/js?id=G-LZQNF5PZLQ').appendTo('head');
 
-                // Once the script is loaded, initialize the gtag configuration
-                setTimeout(function() {
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag() { dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-LZQNF5PZLQ');
-                }, 1000);  // Adding a delay to ensure the gtag.js script loads before initializing
-            }
+            // Once the script is loaded, initialize the gtag configuration
+            setTimeout(function() {
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-            function addUserToService() {
-                const payload = {
-                    "UserId": 0, // Assuming user ID is not known and should be handled by the service
-                    "EmailAddress": "anon3mjwaxmy49c0jbujr33bbsebyul0z9jhzlzsi5wc9puid@consentua.com", // Example email
-                    "Identifier": uid, // Using the UID retrieved from cmgr.getID()
-                    "ServiceId": 25 // Ensure this is a valid ServiceId
-                };
+            gtag('config', 'G-LZQNF5PZLQ');
+            }, 1000);  // We're adding a delay to ensure the gtag.js script loads before initializing. Adjust as needed.
+        }
 
-                fetch('https://api.consentua.com/serviceuser/AnonAddUserToService', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok ' + response.statusText);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log('Success:', data);
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            }
 
-            if (consents[313] === true) {
+            if(consents[313] === true) {
                 onConsent();
-                addUserToService(); // Add user to service upon consent
             } else {
                 $('#cookie-consent').show();
 
@@ -118,28 +89,25 @@
                     serviceid: "25"
                 });
 
-                $('#cookie-skip').click(function() {
+                $('#cookie-skip').click(function(){
                     $('#cookie-consent').hide();
                 });
 
-                cwrap.onset = function(msg) {
+                cwrap.onset = function (msg) {
                     console.log("Consent received from Consentua", msg);
                     let c = msg.message.consents || {};
                     if (c["313"]) {
                         $('#cookie-consent').hide();
                         onConsent();
-                        addUserToService(); // Add user to service upon consent
                     }
                 };
+
             }
-        }).catch(function(error) {
-            console.error("Error retrieving consents:", error);
+
         });
-    }).catch(function(error) {
-        console.error("Error retrieving UID:", error);
     });
     //]]>
-  </script>
+    </script>
     <div id="cookie-consent" style="display:none">
         <div id="cookie-inner">
             <iframe id="consent-cookie"></iframe>
